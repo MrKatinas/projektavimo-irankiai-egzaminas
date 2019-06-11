@@ -10,16 +10,53 @@ namespace Associations
 
 	public class Person
 	{
-		private string name;
-		private string lastName;
+		public string Name;
+		private int Age;
 
-		public void add() { }
+		public void Add() { }
 	}
 
-	public class Professor : Person
+	public class Student : Person
 	{
-		private string salary;
+		public double GPA;
+		private List<VisibilityNotation> visibilityNotations;
 
-		public void changeSalary() { }
+		public void Study(double howLong) { }
+
+		public Student()
+		{
+			this.visibilityNotations = new List<VisibilityNotation>();
+		}
+
+		public Student(List<VisibilityNotation> visibilityNotations)
+		{
+			this.visibilityNotations = visibilityNotations;
+		}
+	}
+
+	public class VisibilityNotation
+	{
+		public void PrivateMethod() { }
+		private void PublicMethod() { }
+		protected void ProtectedMethod() { }
+		//abstract void AbstractMethod();
+		public static void StaticMethod() { }
+	}
+
+	public class Faculty
+	{
+		public string Name;
+		public List<Student> Students;
+	}
+
+	public class University
+	{
+		public string Title;
+		public Faculty[] Faculties;
+
+		public Student GetStudent(int studentId)
+		{
+			return new Student();
+		}
 	}
 }
